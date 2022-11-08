@@ -34,12 +34,20 @@ const FlipCard = () => {
         <h1 className="text-3xl font-bold">Hello world!</h1>
 
         <div>
-          {doubledPhotos.map((photo) => (
-            <>
-              <div key={Math.random()}>{photo.img}</div>
-              <div>arka</div>
-            </>
-          ))}
+          <Grid container spacing={2}>
+            {doubledPhotos.map((photo) => (
+              <>
+                <Grid container item xs={4} spacing={1}>
+                  <div key={Math.random()}>
+                    <img src={photo.img} width="100px" height="200px" />
+                  </div>
+                  <div>
+                    <img src="/4.jpg" width="100px" height="200px" />
+                  </div>
+                </Grid>
+              </>
+            ))}
+          </Grid>
         </div>
       </Container>
     </>
