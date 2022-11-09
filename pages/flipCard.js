@@ -15,7 +15,7 @@ import {
   Button,
   Grid,
 } from "@mui/material";
-import "../styles/Flipcard.module.css";
+import styles from "../styles/Flipcard.module.css";
 
 const FlipCard = () => {
   const photos = [
@@ -25,25 +25,41 @@ const FlipCard = () => {
   ];
   const doubledPhotos = [...photos, ...photos];
 
-  console.log(doubledPhotos, Math.random());
+  const [turned, setTurned] = React.useState("");
+
+  const handleCard = () => {
+    console.log("you clicked");
+  };
 
   return (
     <>
       <Container display="flex">
         <Typography variant="h1">Flip Card Game</Typography>
         <Button variant="contained">Start</Button>
-        <h1 className="text-3xl font-bold">Hello world!</h1>
+        <br />
+        <br />
+        <br />
         <Container>
           <div>
             <Grid container spacing={2}>
               {doubledPhotos.map((photo) => (
                 <>
-                  <Grid container item xs={4} spacing={1}>
-                    <div key={Math.random()}>
-                      <img src={photo.img} width="100px" height="200px" />
+                  <Grid onClick={handleCard} container item xs={4} spacing={1}>
+                    <div className={styles.photo} key={Math.random()}>
+                      <img
+                        className={styles.mainphoto}
+                        src={photo.img}
+                        width="100px"
+                        height="200px"
+                      />
                     </div>
                     <div>
-                      <img src="/4.jpg" width="100px" height="200px" />
+                      <img
+                        className={styles.backphoto}
+                        src="/4.jpg"
+                        width="100px"
+                        height="200px"
+                      />
                     </div>
                   </Grid>
                 </>

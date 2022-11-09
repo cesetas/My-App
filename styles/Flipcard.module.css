@@ -1,0 +1,11 @@
+.photo {
+  position: absolute;
+}
+
+.mainphoto {
+  position: absolute;
+}
+
+.backphoto {
+  z-index: -1;
+}

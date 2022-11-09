@@ -22,7 +22,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 
 const drawerWidth = 300;
-const navItems = ["Home", "About", "Projects", "Contact"];
+const navItems = ["Home", "About", "Projects", "Contact", "flipCard"];
 
 function Appbar(props) {
   const { window } = props;
