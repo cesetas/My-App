@@ -16,6 +16,10 @@ import {
 import PropTypes from "prop-types";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import FacebookIcon from "@mui/icons-material/Facebook";
 
 const drawerWidth = 300;
 const navItems = ["Home", "About", "Projects", "Contact"];
@@ -69,7 +73,7 @@ function Appbar(props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            <a onClick={handleDrawerToggle}>SETAS</a>
+            <a onClick={handleDrawerToggle}>SEDAT TAŞKIRAN</a>
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
@@ -97,7 +101,7 @@ function Appbar(props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
-              backgroundColor: "yellow",
+              backgroundColor: "aqua",
               textAlign: "center",
             },
           }}
@@ -107,13 +111,14 @@ function Appbar(props) {
             <IconButton
               color="inherit"
               aria-label="open drawer"
-              edge="center"
+              edge="end"
               onClick={handleDrawerToggle}
               sx={{ mr: 2 }}
             >
-              <MenuIcon />
-              <MenuIcon />
-              <MenuIcon />
+              <LinkedInIcon />
+              <GitHubIcon />
+              <TwitterIcon />
+              <FacebookIcon />
             </IconButton>
           </Box>
         </Drawer>

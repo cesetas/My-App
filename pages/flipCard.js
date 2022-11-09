@@ -15,6 +15,7 @@ import {
   Button,
   Grid,
 } from "@mui/material";
+import "../styles/Flipcard.module.css";
 
 const FlipCard = () => {
   const photos = [
@@ -32,23 +33,24 @@ const FlipCard = () => {
         <Typography variant="h1">Flip Card Game</Typography>
         <Button variant="contained">Start</Button>
         <h1 className="text-3xl font-bold">Hello world!</h1>
-
-        <div>
-          <Grid container spacing={2}>
-            {doubledPhotos.map((photo) => (
-              <>
-                <Grid container item xs={4} spacing={1}>
-                  <div key={Math.random()}>
-                    <img src={photo.img} width="100px" height="200px" />
-                  </div>
-                  <div>
-                    <img src="/4.jpg" width="100px" height="200px" />
-                  </div>
-                </Grid>
-              </>
-            ))}
-          </Grid>
-        </div>
+        <Container>
+          <div>
+            <Grid container spacing={2}>
+              {doubledPhotos.map((photo) => (
+                <>
+                  <Grid container item xs={4} spacing={1}>
+                    <div key={Math.random()}>
+                      <img src={photo.img} width="100px" height="200px" />
+                    </div>
+                    <div>
+                      <img src="/4.jpg" width="100px" height="200px" />
+                    </div>
+                  </Grid>
+                </>
+              ))}
+            </Grid>
+          </div>
+        </Container>
       </Container>
     </>
   );
