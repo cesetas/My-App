@@ -19,7 +19,10 @@ import {
 const Footer = () => {
   return (
     <div className="text font-style: italic  p-8 text-center bg-black text-white fixed inset-x-0 bottom-0">
-      <div className="text-3xl font-bold">set@s</div>
+      <a>
+        Powered by <span className="text-xl font-bold">set@s</span>
+      </a>
+
       <div>Copyright &#169; 2022</div>
     </div>
   );

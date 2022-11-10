@@ -16,6 +16,7 @@ import {
   Grid,
 } from "@mui/material";
 import styles from "../styles/Flipcard.module.css";
+import { PersonRemoveAlt1Rounded } from "@mui/icons-material";
 
 const FlipCard = () => {
   const photos = [
@@ -23,12 +24,27 @@ const FlipCard = () => {
     { img: "2.jpg", isTurned: false },
     { img: "3.jpg", isTurned: false },
   ];
-  const doubledPhotos = [...photos, ...photos];
+  const shuffledPhotos = [...photos, ...photos]
+    .map((photo) => ({
+      ...photo,
+      id: Math.random(),
+    }))
+    .sort(() => Math.random() - 0.5);
+  console.log(shuffledPhotos);
+  const [isTurned, setIsTurned] = React.useState(false);
+  const [sty, setSty] = React.useState(styles.mainphoto);
+  const [cards, setCards] = React.useState(shuffledPhotos);
 
-  const [turned, setTurned] = React.useState("");
+  const handleCard = (e) => {
+    // shuffledPhotos.isTurned = !shuffledPhotos.isTurned;
+    setIsTurned(!isTurned);
+    setTimeout(() => {
+      setIsTurned(false);
+    }, 1500);
 
-  const handleCard = () => {
-    console.log("you clicked");
+    console.log(e.target.id);
+    // photos[e.target.id - 1].isTurned = isTurned;
+    // console.log(!photos[e.target.id - 1].isTurned);
   };
 
   return (
@@ -42,20 +58,27 @@ const FlipCard = () => {
         <Container>
           <div>
             <Grid container spacing={2}>
-              {doubledPhotos.map((photo) => (
+              {cards.map((photo) => (
                 <>
-                  <Grid onClick={handleCard} container item xs={4} spacing={1}>
-                    <div className={styles.photo} key={Math.random()}>
+                  <Grid container item xs={4} spacing={1}>
+                    <div key={photo.id}>
                       <img
-                        className={styles.mainphoto}
+                        // id={photo.id}
+                        // onClick={handleCard}
+                        className={
+                          isTurned ? styles.mainphoto : styles.backphoto
+                        }
                         src={photo.img}
                         width="100px"
                         height="200px"
                       />
-                    </div>
-                    <div>
+
                       <img
-                        className={styles.backphoto}
+                        id={photo.id}
+                        onClick={handleCard}
+                        className={
+                          isTurned ? styles.backphoto : styles.mainphoto
+                        }
                         src="/4.jpg"
                         width="100px"
                         height="200px"

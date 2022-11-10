@@ -3,9 +3,9 @@
 }
 
 .mainphoto {
-  position: absolute;
+  display: block;
 }
 
 .backphoto {
-  z-index: -1;
+  display: none;
 }
